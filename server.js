@@ -6,6 +6,8 @@ const server = express();
 const PORT = 3000;
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 
+server.use(express.static("public"));
+
 server.get("/", (request, response) => {
     item = "";
     for (const user of Object.values(users)) {
@@ -39,4 +41,4 @@ server.get("/", (request, response) => {
     response.send(html)
 });
 
-// app.use(express.static("/" + '/public'));
+
