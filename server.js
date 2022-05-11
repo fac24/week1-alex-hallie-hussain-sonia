@@ -33,9 +33,10 @@ server.get("/", (request, response) => {
     response.send(html);
 });
 
+// app.use(express.static("/" + '/public'));
+
 server.get("/show-posts", (request, response) => {
     item = "";
-    console.log(users);
     for (const user of Object.values(users)) {
         item += `<li><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
     }
@@ -44,10 +45,11 @@ server.get("/show-posts", (request, response) => {
     <head>
         <meta charset="utf-8">
         <title>bløgge</title>
+        <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     
     <body>
-        <h1>bløgge</h1>
+        <h1 style="color:blue;text-align:center;">bløgge</h1>
         <form>
             <label for="username">
                 <input name="username" id="username" />
@@ -59,7 +61,7 @@ server.get("/show-posts", (request, response) => {
         </form>
         <section>
         <h2>Recent Posts</h2>
-        <ul>${item}</ul>
+        <ul class="user-post">${item}</ul>
         </section>
   </body>
 </html>`
