@@ -7,12 +7,16 @@ const PORT = 3000;
 server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 
 server.get("/", (request, response) => {
-
+    item = "";
+    for (const user of Object.values(users)) {
+        item += `<li><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
+    }
     const html = /* html */`
     <html>
     <head>
         <meta charset="utf-8">
         <title>bløgge</title>
+        <link rel="stylesheet" type="text/css" href="/style.css">
     </head>
     
     <body>
@@ -26,9 +30,13 @@ server.get("/", (request, response) => {
             </label>
             <button type="submit">Submit</button>
         </form>
-
+        <section>
+        <h2>Recent Posts</h2>
+        <ul class="user-post">${item}</ul>
+        </section>
   </body>
-</html>
-`;
-    response.send(html);
+</html>`
+    response.send(html)
 });
+
+// app.use(express.static("/" + '/public'));
