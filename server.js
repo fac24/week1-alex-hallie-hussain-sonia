@@ -42,3 +42,6 @@ server.get("/", (request, response) => {
 });
 
 
+server.post("/", (request, response) => {
+   console.log(request.body);
+});
