@@ -13,15 +13,9 @@ server.get("/", (request, response) => {
     for (const user of Object.values(users)) {
         item += `<li class="user-post">
         <div>
-<<<<<<< HEAD
             <h3>${user.username}</h3>
             <form action="/delete-post" method="POST" style="display: inline;">
             <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
-=======
-            <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" style="display: inline;" class="delete_form">
-            <button name="name" value="${user.username}" aria-label="Delete ${user.post}" class="delete_button">
->>>>>>> 3f6ea077066f707d64f84a5b78386c1e70e64d77
               &times;
             </button>
           </form>
@@ -40,24 +34,20 @@ server.get("/", (request, response) => {
     </head>
     <body>
         <h1>bløgge</h1>
-        <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
-         <section class="form-s">
-         <form method="POST">
-            <label for="username">
-                <input name="username" id="username" class="input_name" placeholder="Please enter your name" required/>
+        <form method="POST">
+            <label for="username">Your name
+                <input name="username" id="username" required/>
             </label>
-            <br><br>
-            <label for="post" id="post-lable">
-                <input name="post" id="post" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
+            <br>
+            <label for="post" id="post-lable">Your post
+                <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
-            <br><br>
             <button type="submit">Submit</button>
         </form>
-        </section>
         <section>
         <h2>Recent Posts</h2>
-        <ul>${item}></ul>
+        <ul>${item}</ul>
         </section>
 
   </body>
