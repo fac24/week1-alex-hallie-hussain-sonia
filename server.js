@@ -23,7 +23,7 @@ server.get("/", (request, response) => {
     
     <body>
         <h1>bløgge</h1>
-        <form method="POST">
+        <form data-cy="posting-form" method="POST">
             <label for="username">Your name
                 <input name="username" id="username" data-cy="username"/>
             </label>
