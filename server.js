@@ -9,11 +9,11 @@ server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 server.use(express.static("public"));
 
 server.get("/", (request, response) => {
-    item = "";
-    for (const user of Object.values(users)) {
-        item += `<li class="user-post"><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
-    }
-    const html = /* html */`
+  item = "";
+  for (const user of Object.values(users)) {
+    item += `<li class="user-post"><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
+  }
+  const html = /* html */ `
     <html>
     <head>
         <meta charset="utf-8">
@@ -25,11 +25,11 @@ server.get("/", (request, response) => {
         <h1>bløgge</h1>
         <form method="POST">
             <label for="username">Your name
-                <input name="username" id="username" />
+                <input name="username" id="username" required/>
             </label>
             <br>
             <label for="post">Your post
-                <input name="post" id="post" />
+                <input name="post" id="post" maxlength="280" required/>
             </label>
             <button type="submit">Submit</button>
         </form>
@@ -38,16 +38,16 @@ server.get("/", (request, response) => {
         <ul>${item}</ul>
         </section>
   </body>
-</html>`
-    response.send(html)
+</html>`;
+  response.send(html);
 });
 
 const bodyParser = express.urlencoded({ extended: false });
 
 server.post("/", bodyParser, (request, response) => {
-   console.log(request.body);
-   let newUser = request.body;
-   let name = newUser.username.toLowerCase();
-   users[name] = newUser;
-   response.redirect("/");
+  console.log(request.body);
+  let newUser = request.body;
+  let name = newUser.username.toLowerCase();
+  users[name] = newUser;
+  response.redirect("/");
 });
