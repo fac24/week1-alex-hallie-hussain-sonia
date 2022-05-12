@@ -14,8 +14,8 @@ server.get("/", (request, response) => {
         item += `<li class="user-post">
         <div>
             <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" style="display: inline;">
-            <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
+            <form action="/delete-post" method="POST" style="display: inline;" class="delete_form">
+            <button name="name" value="${user.username}" aria-label="Delete ${user.post}" class="delete_button">
               &times;
             </button>
           </form>
@@ -38,11 +38,11 @@ server.get("/", (request, response) => {
          <section class="form-s">
          <form method="POST">
             <label for="username">
-                <input name="username" id="username" class="input_name" required/>
+                <input name="username" id="username" class="input_name" placeholder="Please enter your name" required/>
             </label>
             <br><br>
             <label for="post" id="post-lable">
-                <input name="post" id="post" class="input_post" maxlength="280" required class="char-remain-txt"/>
+                <input name="post" id="post" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
             <br><br>

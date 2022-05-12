@@ -60,7 +60,7 @@ form {
   /* width: 85%; */
   padding: 3em;
   margin: auto; 
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .form-s {
@@ -92,7 +92,11 @@ button:hover {
     background-color: var(--light-blue);
     border: 2px solid var(--light-blue);
 }
+/* labels */
 
+label {
+    width: 380px;
+}
 /* hidden dots on lists */
 li {
     list-style-position: inside;
@@ -117,6 +121,7 @@ li {
     margin-bottom: 2rem;
 }
 
+
 .input_name {
    width: 100%;
    height: 50px;
@@ -128,3 +133,31 @@ li {
    border-radius: 4px;
 }
 
+/* styling delete elements */
+.delete_form {
+    background-color: transparent;
+    width: 5px;
+}
+.delete_button {
+
+    border: 2px solid var(--light-blue);
+    background-color: var(--light-blue);
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    width: 2px;
+    float: right;
+    cursor: pointer;
+    border-radius: 6px;
+    transition-duration: 0.4; 
+    padding: 20px;
+   
+}
+
+.delete_button:hover{
+    transform: scale(1.1);
+    color: var(--white);
+    background-color: var(--grey);
+    border: 2px solid var(--grey);
+}
