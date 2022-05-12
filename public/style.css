@@ -1,7 +1,163 @@
-.user-post {
-    background-color: red;
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+:root {
+    --grey: #687864;
+    --blue: #31708E;
+    --light-blue: #5085A5;
+    --lightest-blue: #8FC1E3;
+    --white: #F7F9FB;
+}
+
+html {
+    margin: 0 auto;
+    background-color: var(--grey);
+    max-width: 75em;
 }
 
 body {
-    background-color: aqua;
+    padding: 2 3em;
+    font-family:  Inter, sans-serif;
+    font-size: 18px;
+    background-color: var(--white);
+    
+}
+
+/* title */
+h1 {
+    text-align: center;
+    margin-top: 5%;
+    padding: 2 3em;
+    letter-spacing: 5px;
+}
+/* recent posts */
+h2 {
+    text-align: center;
+    margin-top: 15px;
+    padding: 2 3em;
+    letter-spacing: 3px;
+}
+
+/* description of the world */
+.blogge {
+    line-height: 1.8;
+    font-size: 1.25rem;
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+}
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--white);
+  margin: 0 auto;
+  /* width: 85%; */
+  padding: 3em;
+  margin: auto; 
+  max-width: 700px;
+}
+
+.form-s {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+/* button */
+button {
+   
+   border: 2px solid var(--lightest-blue);
+   background-color: var(--lightest-blue);
+   color: black;
+   text-align: center;
+   font-size: 16px;
+   font-weight: 600;
+   width: 100%;
+   padding: 8px 70px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 6px;
+   transition-duration: 0.4;
+} 
+
+button:hover {
+    transform: scale(1.1);
+    color: var(--white);
+    background-color: var(--light-blue);
+    border: 2px solid var(--light-blue);
+}
+/* labels */
+
+label {
+    width: 380px;
+}
+/* hidden dots on lists */
+li {
+    list-style-position: inside;
+    list-style: none;
+    max-width: 500px;
+    margin: auto;
+    
+}
+/* posts */
+.user-post {
+
+    text-indent: 30px;
+    white-space: nowrap;
+    width: 60%;
+    height: 150px;
+    border-radius: 4px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px var(--grey);
+    background-color: var(--lightest-blue);
+    background-image: linear-gradient(180deg, var(--lightest-blue), var(--white));
+    margin-bottom: 2rem;
+}
+
+
+.input_name {
+   width: 100%;
+   height: 50px;
+   border-radius: 4px;
+}
+.input_post {
+   width: 100%;
+   height: 100px;
+   border-radius: 4px;
+}
+
+/* styling delete elements */
+.delete_form {
+    background-color: transparent;
+    width: 5px;
+}
+.delete_button {
+
+    border: 2px solid var(--light-blue);
+    background-color: var(--light-blue);
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    width: 2px;
+    float: right;
+    cursor: pointer;
+    border-radius: 6px;
+    transition-duration: 0.4; 
+    padding: 20px;
+   
+}
+
+.delete_button:hover{
+    transform: scale(1.1);
+    color: var(--white);
+    background-color: var(--grey);
+    border: 2px solid var(--grey);
 }
