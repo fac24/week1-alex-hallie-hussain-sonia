@@ -29,6 +29,7 @@ server.get("/", (request, response) => {
     <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>bløgge</title>
         <link rel="stylesheet" type="text/css" href="/style.css">
         <script src="index.js" defer></script>
@@ -39,11 +40,11 @@ server.get("/", (request, response) => {
          <section class="form-s">
          <form method="POST">
             <label for="username">
-                <input name="username" id="username" class="input_name" placeholder="Please enter your name" required/>
+                <input name="username" aria-label="Name" id="username" class="input_name" placeholder="Please enter your name" required/>
             </label>
             <br><br>
             <label for="post" id="post-lable">
-                <input name="post" id="post" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
+                <input name="post" id="post" aria-label="Message" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
             <br><br>
