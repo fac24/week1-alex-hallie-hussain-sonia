@@ -11,7 +11,7 @@ server.use(express.static("public"));
 server.get("/", (request, response) => {
     item = "";
     for (const user of Object.values(users)) {
-        item += `<li><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
+        item += `<li class="user-post"><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
     }
     const html = /* html */`
     <html>
@@ -23,22 +23,31 @@ server.get("/", (request, response) => {
     
     <body>
         <h1>bløgge</h1>
-        <form>
-            <label for="username">
+        <form method="POST">
+            <label for="username">Your name
                 <input name="username" id="username" />
             </label>
-            <label for="post">
+            <br>
+            <label for="post">Your post
                 <input name="post" id="post" />
             </label>
             <button type="submit">Submit</button>
         </form>
         <section>
         <h2>Recent Posts</h2>
-        <ul class="user-post">${item}</ul>
+        <ul>${item}</ul>
         </section>
   </body>
 </html>`
     response.send(html)
 });
 
+const bodyParser = express.urlencoded({ extended: false });
 
+server.post("/", bodyParser, (request, response) => {
+   console.log(request.body);
+   let newUser = request.body;
+   let name = newUser.username.toLowerCase();
+   users[name] = newUser;
+   response.redirect("/");
+});
