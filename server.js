@@ -42,12 +42,12 @@ server.get("/", (request, response) => {
     response.send(html)
 });
 
-const bodyParser = express.urlencoded({ extended: false });
+const bodyParser = express.urlencoded({extended: false});
 
 server.post("/", bodyParser, (request, response) => {
-   console.log(request.body);
-   let newUser = request.body;
-   let name = newUser.username.toLowerCase();
-   users[name] = newUser;
-   response.redirect("/");
+    console.log(request.body);
+    let newUser = request.body;
+    let name = newUser.username.toLowerCase();
+    users[name] = newUser;
+    response.redirect("/");
 });
