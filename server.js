@@ -13,7 +13,7 @@ server.get("/", (request, response) => {
     for (const user of Object.values(users)) {
         item += `<li class="user-post">
         <div>
-            <h3>${user.username}</h3> 
+            <h3>${user.username}</h3>
             <form action="/delete-post" method="POST" style="display: inline;">
             <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
               &times;
