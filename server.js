@@ -63,7 +63,6 @@ server.post("/", bodyParser, (request, response) => {
 });
 
 server.post("/delete-post", bodyParser, (request, response) => {
-    console.log(request.body);
     const postToDelete = request.body.name.toLowerCase();
     delete users[postToDelete];
     response.redirect("/");
