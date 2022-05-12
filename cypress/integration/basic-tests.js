@@ -1,4 +1,4 @@
-it("can visit homepage", () => {
+it("user can visit homepage", () => {
     cy.visit("https://micro-blogge.herokuapp.com/");
 })
 
@@ -22,7 +22,7 @@ it("user can read more than one post", () => {
 })
 
 it("user can submit post and post will appear beneath", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("https://micro-blogge.herokuapp.com/");
     cy.get('form[data-cy="posting-form"]').find('input[data-cy="username"]').type("Theodore Roosevelt");
     cy.get('form[data-cy="posting-form"]').find('input[data-cy="post"]').type('Call me Teddy');
     cy.get('form[data-cy="posting-form"]').find('button[data-cy="submit"]').click();
@@ -30,10 +30,10 @@ it("user can submit post and post will appear beneath", () => {
     cy.get('ul>li').contains("p", "Call me Teddy");
 })
 
-it("user can delete a post", () => {
-    cy.visit("https://micro-blogge.herokuapp.com/");
+// it("user can delete a post", () => {
+//     cy.visit("https://micro-blogge.herokuapp.com/");
     
-})
+// })
 
 //routes
 //post
