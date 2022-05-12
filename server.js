@@ -30,17 +30,18 @@ server.get("/", (request, response) => {
         <meta charset="utf-8">
         <title>bløgge</title>
         <link rel="stylesheet" type="text/css" href="/style.css">
+        <script src="index.js" defer></script>
     </head>
-    
     <body>
         <h1>bløgge</h1>
         <form method="POST">
             <label for="username">Your name
-                <input name="username" id="username" />
+                <input name="username" id="username" required/>
             </label>
             <br>
-            <label for="post">Your post
-                <input name="post" id="post" />
+            <label for="post" id="post-lable">Your post
+                <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
+                <div><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
         </form>
@@ -48,9 +49,10 @@ server.get("/", (request, response) => {
         <h2>Recent Posts</h2>
         <ul>${item}</ul>
         </section>
+
   </body>
-</html>`
-    response.send(html)
+</html>`;
+  response.send(html);
 });
 
 const bodyParser = express.urlencoded({extended: false});
