@@ -25,7 +25,8 @@ server.get("/", (request, response) => {
 
     }
     const html = /* html */`
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>bløgge</title>
@@ -51,7 +52,7 @@ server.get("/", (request, response) => {
         </section>
         <section>
         <h2>Recent Posts</h2>
-        <ul>${item}></ul>
+        <ul>${item}</ul>
         </section>
 
   </body>

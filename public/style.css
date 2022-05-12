@@ -20,6 +20,7 @@ html {
 }
 
 body {
+    
     padding: 2 3em;
     font-family:  Inter, sans-serif;
     font-size: 18px;
@@ -29,8 +30,9 @@ body {
 
 /* title */
 h1 {
-    text-align: center;
+    
     margin-top: 5%;
+    text-align: center;
     padding: 2 3em;
     letter-spacing: 5px;
 }
