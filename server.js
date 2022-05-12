@@ -14,8 +14,8 @@ server.get("/", (request, response) => {
         item += `<li class="user-post">
         <div>
             <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" style="display: inline;">
-            <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
+            <form action="/delete-post" method="POST" data-cy="deleting-form">
+            <button name="name" value="${user.username}" aria-label="Delete ${user.post}" data-cy="delete-btn">
               &times;
             </button>
           </form>
@@ -52,7 +52,7 @@ server.get("/", (request, response) => {
 
   </body>
 </html>`;
-  response.send(html);
+    response.send(html);
 });
 
 const bodyParser = express.urlencoded({extended: false});
