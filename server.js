@@ -23,19 +23,23 @@ server.get("/", (request, response) => {
     
     <body>
         <h1>bløgge</h1>
-        <form method="POST">
-            <label for="username">Your name
-                <input name="username" id="username" />
+        <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
+        <section class="form-s">
+          <form method="POST">
+            <label for="username">
+                <input name="username" id="username" class="input_name"/>
             </label>
-            <br>
-            <label for="post">Your post
-                <input name="post" id="post" />
+            <br><br>
+            <label for="post">
+                <input name="post" id="post" class="input_post"/>
             </label>
+            <br><br>
             <button type="submit">Submit</button>
         </form>
+        </section>
         <section>
         <h2>Recent Posts</h2>
-        <ul>${item}</ul>
+        <ul>${item}></ul>
         </section>
   </body>
 </html>`
