@@ -13,28 +13,28 @@ it("user can read posts on home page", () => {
     cy.contains("p", "The best post");
 })
 
-// it("user can read more than one post", () => {
-//     cy.visit("https://micro-blogge.herokuapp.com/");
-//     cy.contains()
-// })
-
-// it("user can view form on home page", () => {
-//     cy.visit("https://micro-blogge.herokuapp.com/");
-//     // cy.get("form").find("input[name='username']");
-//     // cy.get("form").find("input[name='post'])");
-//     cy.get("form").find(`button[data-cy="submit"])`);
-// })
+it("user can read more than one post", () => {
+    cy.visit("https://micro-blogge.herokuapp.com/");
+    cy.get("ul")
+    .children()
+    .should('contain', 'The best post')
+    .and('contain', 'The worst post')
+})
 
 it("user can submit post and post will appear beneath", () => {
-    cy.visit("http://localhost:3000/");
-    cy.get('form').find('input[data-cy="username"]').type("alex");
-    cy.get('form').find('input[data-cy="post"]').type('test');
-    cy.get('form').find('button[data-cy="submit"]').click();
-    cy.get('ul>li').contains("h3", "alex");
-    cy.get('ul>li').contains("p", "test");
+    cy.visit("http://localhost:3000");
+    cy.get('form[data-cy="posting-form"]').find('input[data-cy="username"]').type("Theodore Roosevelt");
+    cy.get('form[data-cy="posting-form"]').find('input[data-cy="post"]').type('Call me Teddy');
+    cy.get('form[data-cy="posting-form"]').find('button[data-cy="submit"]').click();
+    cy.get('ul>li').contains("h3", "Theodore Roosevelt");
+    cy.get('ul>li').contains("p", "Call me Teddy");
+})
+
+it("user can delete a post", () => {
+    cy.visit("https://micro-blogge.herokuapp.com/");
+    
 })
 
 //routes
 //post
 //delete
-//read posted post
