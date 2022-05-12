@@ -9,11 +9,22 @@ server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 server.use(express.static("public"));
 
 server.get("/", (request, response) => {
-  item = "";
-  for (const user of Object.values(users)) {
-    item += `<li class="user-post"><div><h3>${user.username}</h3> <p>${user.post}</p></div></li>`;
-  }
-  const html = /* html */ `
+    item = "";
+    for (const user of Object.values(users)) {
+        item += `<li class="user-post">
+        <div>
+            <h3>${user.username}</h3> 
+            <form action="/delete-post" method="POST" style="display: inline;">
+            <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
+              &times;
+            </button>
+          </form>
+            <p>${user.post}</p>
+        </div>
+            </li>`;
+
+    }
+    const html = /* html */`
     <html>
     <head>
         <meta charset="utf-8">
@@ -47,11 +58,14 @@ server.get("/", (request, response) => {
 const bodyParser = express.urlencoded({extended: false});
 
 server.post("/", bodyParser, (request, response) => {
+    let newUser = request.body;
+    let name = newUser.username.toLowerCase();
+    users[name] = newUser;
+    response.redirect("/");
+});
 
-  console.log(request.body);
-  let newUser = request.body;
-  let name = newUser.username.toLowerCase();
-  users[name] = newUser;
-  response.redirect("/");
-
+server.post("/delete-post", bodyParser, (request, response) => {
+    const postToDelete = request.body.name.toLowerCase();
+    delete users[postToDelete];
+    response.redirect("/");
 });
