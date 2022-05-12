@@ -25,13 +25,13 @@ server.get("/", (request, response) => {
         <h1>bløgge</h1>
         <form method="POST">
             <label for="username">Your name
-                <input name="username" id="username" />
+                <input name="username" id="username" data-cy="username"/>
             </label>
             <br>
             <label for="post">Your post
-                <input name="post" id="post" />
+                <input name="post" id="post" data-cy="post"/>
             </label>
-            <button type="submit">Submit</button>
+            <button type="submit" data-cy="submit">Submit</button>
         </form>
         <section>
         <h2>Recent Posts</h2>
