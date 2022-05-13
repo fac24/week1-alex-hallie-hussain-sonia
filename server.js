@@ -9,7 +9,7 @@ server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 server.use(express.static("public"));
 
 server.get("/", (request, response) => {
-  item = "";
+  let item = "";
   for (const user of Object.values(users)) {
     item += `<li class="user-post">
         <div>
