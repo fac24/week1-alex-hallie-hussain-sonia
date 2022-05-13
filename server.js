@@ -46,8 +46,8 @@ server.get("/", (request, response) => {
             <button type="submit">Submit</button>
         </form>
         <section>
-        <h2>Recent Posts</h2>
-        <ul>${item}</ul>
+            <h2>Recent Posts</h2>
+            <ul>${item}</ul>
         </section>
 
   </body>
@@ -67,10 +67,9 @@ function sanitise(original_input) {
         sanitised[key] = value.replaceAll(">", "&gt;");
     }
     return sanitised;
-}
+};
 
 server.post("/", bodyParser, (request, response) => {
-    console.log(request.body)
     if (request.body.username && request.body.post) {
         let newUser = sanitise(request.body);
         const userId = idCounter;
@@ -85,10 +84,7 @@ server.post("/", bodyParser, (request, response) => {
 });
 
 server.post("/delete-post", bodyParser, (request, response) => {
-  console.log(request.body.id);
-
   const postToDelete = request.body.id;
-
   delete users[postToDelete];
   response.redirect("/");
 });
