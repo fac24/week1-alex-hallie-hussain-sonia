@@ -46,7 +46,7 @@ server.get("/", (request, response) => {
             <br><br>
             <label for="post" id="post-lable">
                 <input name="post" id="post" aria-label="Message" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
-                <div><span class="char-remain-count"></span>/280</div>
+                <div class="counter"><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
         </form>
