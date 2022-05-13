@@ -4,7 +4,6 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "npm init -y && npm install express && npm install -D cypress",
     "test": "cypress open",
     "start": "node server.js",
     "dev": "nodemon server.js"
