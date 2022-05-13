@@ -1,7 +1,8 @@
+
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 
@@ -20,23 +21,22 @@ html {
 }
 
 body {
-
+    
     padding: 2 3em;
-    font-family: Inter, sans-serif;
+    font-family:  Inter, sans-serif;
     font-size: 18px;
     background-color: var(--white);
-
+    
 }
 
 /* title */
 h1 {
-
+    
     margin-top: 5%;
     text-align: center;
     padding: 2 3em;
     letter-spacing: 5px;
 }
-
 /* recent posts */
 h2 {
     text-align: center;
@@ -53,43 +53,41 @@ h2 {
     font-weight: 500;
     font-style: italic;
 }
-
 /* form */
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: var(--white);
-    margin: 0 auto;
-    /* width: 85%; */
-    padding: 3em;
-    margin: auto;
-    max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--white);
+  margin: 0 auto;
+  /* width: 85%; */
+  padding: 3em;
+  margin: auto; 
+  max-width: 700px;
 }
 
 .form-s {
     width: 100%;
     display: flex;
     justify-content: center;
-
+    
 }
-
 /* button */
 button {
-
-    border: 2px solid var(--lightest-blue);
-    background-color: var(--lightest-blue);
-    color: black;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-    width: 100%;
-    padding: 8px 70px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition-duration: 0.4;
-}
+   
+   border: 2px solid var(--lightest-blue);
+   background-color: var(--lightest-blue);
+   color: black;
+   text-align: center;
+   font-size: 16px;
+   font-weight: 600;
+   width: 100%;
+   padding: 8px 70px;
+   margin: 4px 2px;
+   cursor: pointer;
+   border-radius: 6px;
+   transition-duration: 0.4;
+} 
 
 button:hover {
     transform: scale(1.1);
@@ -97,22 +95,19 @@ button:hover {
     background-color: var(--light-blue);
     border: 2px solid var(--light-blue);
 }
-
 /* labels */
 
 label {
     width: 380px;
 }
-
 /* hidden dots on lists */
 li {
     list-style-position: inside;
     list-style: none;
     max-width: 500px;
     margin: auto;
-
+    
 }
-
 /* posts */
 .user-post {
 
@@ -131,15 +126,14 @@ li {
 
 
 .input_name {
-    width: 100%;
-    height: 50px;
-    border-radius: 4px;
+   width: 100%;
+   height: 50px;
+   border-radius: 4px;
 }
-
 .input_post {
-    width: 100%;
-    height: 100px;
-    border-radius: 4px;
+   width: 100%;
+   height: 100px;
+   border-radius: 4px;
 }
 
 /* styling delete elements */
@@ -147,7 +141,6 @@ li {
     background-color: transparent;
     width: 5px;
 }
-
 .delete_button {
 
     border: 2px solid var(--light-blue);
@@ -160,14 +153,13 @@ li {
     float: right;
     cursor: pointer;
     border-radius: 6px;
-    transition-duration: 0.4;
+    transition-duration: 0.4; 
     padding: 20px;
-
+   
 }
 
-.delete_button:hover {
+.delete_button:hover{
     transform: scale(1.1);
     color: var(--white);
     background-color: var(--grey);
     border: 2px solid var(--grey);
-}

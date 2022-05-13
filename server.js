@@ -34,12 +34,14 @@ server.get("/", (request, response) => {
     <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>bløgge</title>
         <link rel="stylesheet" type="text/css" href="/style.css">
         <script src="index.js" defer></script>
     </head>
     <body>
         <h1>bløgge</h1>
+<<<<<<< HEAD
         <form method="POST">
             <label for="username">Your name
                 <input name="username" id="username" required/>
@@ -47,6 +49,17 @@ server.get("/", (request, response) => {
             <br>
             <label for="post" id="post-lable">Your post
                 <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
+=======
+        <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
+         <section class="form-s">
+         <form method="POST">
+            <label for="username">
+                <input name="username" aria-label="Name" id="username" class="input_name" placeholder="Please enter your name" required/>
+            </label>
+            <br><br>
+            <label for="post" id="post-lable">
+                <input name="post" id="post" aria-label="Message" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
+>>>>>>> 7a72c71e1e409d986fdfcc280cad043da4a9a72a
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
