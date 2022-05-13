@@ -13,16 +13,10 @@ server.get("/", (request, response) => {
   for (const user of Object.values(users)) {
     item += `<li class="user-post">
         <div>
-<<<<<<< HEAD
-            <h3>${user.username}</h3>
-            <form action="/delete-post" method="POST" style="display: inline;">
-            <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
-=======
             <h3>${user.username}</h3> 
             <form action="/delete-post" method="POST" style="display: inline;">
             <input name="username" hidden value="${user.username}"/>
             <button name="id" value="${user.id}" aria-label="Delete ${user.post}">
->>>>>>> 8c0a4339786a560ca9987668744f63b6f4877ad4
               &times;
             </button>
           </form>
@@ -41,15 +35,6 @@ server.get("/", (request, response) => {
     </head>
     <body>
         <h1>bløgge</h1>
-<<<<<<< HEAD
-        <form method="POST">
-            <label for="username">Your name
-                <input name="username" id="username" required/>
-            </label>
-            <br>
-            <label for="post" id="post-lable">Your post
-                <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
-=======
         <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
          <section class="form-s">
          <form method="POST">
@@ -59,7 +44,6 @@ server.get("/", (request, response) => {
             <br><br>
             <label for="post" id="post-lable">
                 <input name="post" id="post" aria-label="Message" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
->>>>>>> 7a72c71e1e409d986fdfcc280cad043da4a9a72a
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
