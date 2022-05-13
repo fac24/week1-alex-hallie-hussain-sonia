@@ -9,24 +9,23 @@ server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 server.use(express.static("public"));
 
 server.get("/", (request, response) => {
-    item = "";
-    for (const user of Object.values(users)) {
-        item += `<li class="user-post">
+  item = "";
+  for (const user of Object.values(users)) {
+    item += `<li class="user-post">
         <div>
             <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" class="deleting_form">
-            <button name="name" value="${user.username}" aria-label="Delete ${user.post}" class="delete_btn">
+            <form action="/delete-post" method="POST" style="display: inline;">
+            <input name="username" hidden value="${user.username}"/>
+            <button name="id" value="${user.id}" aria-label="Delete ${user.post}">
               &times;
             </button>
           </form>
             <p>${user.post}</p>
         </div>
             </li>`;
-
-    }
-    const html = /* html */`
-    <!DOCTYPE html>
-    <html lang="en">
+  }
+  const html = /* html */ `
+    <html>
     <head>
         <meta charset="utf-8">
         <title>bløgge</title>
@@ -35,21 +34,17 @@ server.get("/", (request, response) => {
     </head>
     <body>
         <h1>bløgge</h1>
-        <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
-         <section class="form-s">
-         <form method="POST">
-            <label for="username">
-                <input name="username" id="username" class="input_name" placeholder="Please enter your name" required/>
+        <form method="POST">
+            <label for="username">Your name
+                <input name="username" id="username" required/>
             </label>
-            <br><br>
-            <label for="post" id="post-lable">
-                <input name="post" id="post" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
+            <br>
+            <label for="post" id="post-lable">Your post
+                <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
-            <br><br>
             <button type="submit">Submit</button>
         </form>
-        </section>
         <section>
         <h2>Recent Posts</h2>
         <ul>${item}</ul>
@@ -57,20 +52,30 @@ server.get("/", (request, response) => {
 
   </body>
 </html>`;
-    response.send(html);
+  response.send(html);
 });
 
-const bodyParser = express.urlencoded({extended: false});
+const bodyParser = express.urlencoded({ extended: true });
+let idCounter = 5;
 
 server.post("/", bodyParser, (request, response) => {
-    let newUser = request.body;
-    let name = newUser.username.toLowerCase();
-    users[name] = newUser;
-    response.redirect("/");
+  let newUser = request.body;
+  console.log(request.body);
+  let name = newUser.username.toLowerCase();
+  const userId = idCounter;
+  users[userId] = newUser;
+  users[userId].id = userId;
+  console.log(users);
+
+  response.redirect("/");
+  idCounter++;
 });
 
 server.post("/delete-post", bodyParser, (request, response) => {
-    const postToDelete = request.body.name.toLowerCase();
-    delete users[postToDelete];
-    response.redirect("/");
+  console.log(request.body.id);
+
+  const postToDelete = request.body.id;
+
+  delete users[postToDelete];
+  response.redirect("/");
 });
