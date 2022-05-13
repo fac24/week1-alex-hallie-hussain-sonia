@@ -48,6 +48,7 @@ server.get("/", (request, response) => {
             </label>
             <button type="submit">Submit</button>
         </form>
+        </section>
         <section>
         <h2>Recent Posts</h2>
         <ul>${item}</ul>
