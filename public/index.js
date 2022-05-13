@@ -1,6 +1,6 @@
 // (A) GET TEXTAREA + REMAINING COUNTER
-let textarea = document.querySelector("#post-lable .char-remain-txt"),
-  remain = document.querySelector("#post-lable .char-remain-count");
+let textarea = document.querySelector("#post-label .char-remain-txt"),
+  remain = document.querySelector("#post-label .char-remain-count");
 
 // (B) INIT REMAINING CHARACTERS
 remain.innerHTML = textarea.maxLength;
