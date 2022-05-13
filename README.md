@@ -9,7 +9,6 @@ Made for the [Week I project](https://learn.foundersandcoders.com/course/syllabu
 - Clone repository
 - Make sure Node and npm are installed
 - Command line: npm run build
-- Command line: npm run start
 - Command line: npm run dev
 
 ## User Stories
@@ -29,12 +28,12 @@ Made for the [Week I project](https://learn.foundersandcoders.com/course/syllabu
 
 ## Requirements
 
-[] A page with a form to submit posts, and a page showing all posts
-[x] No .html files (all HTML responses should be created dynamically within Node)
-[x] No client-side JavaScript (all logic should happen on the server)
-[] All static assets served correctly (CSS, favicon etc)
-[] Tests for each server route
-[] A responsive, mobile-first design
-[] Ensure your app is accessible to as many different users as possible
+- [ ] A page with a form to submit posts, and a page showing all posts
+- [x] No .html files (all HTML responses should be created dynamically within Node)
+- [x] No client-side JavaScript (all logic should happen on the server)
+- [ ] All static assets served correctly (CSS, favicon etc)
+- [ ] Tests for each server route
+- [ ] A responsive, mobile-first design
+- [ ] Ensure your app is accessible to as many different users as possible
 
 ## Further Steps
