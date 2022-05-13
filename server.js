@@ -40,7 +40,7 @@ server.get("/", (request, response) => {
             </label>
             <br>
             <label for="post" id="post-lable">Your post
-                <input name="post" id="post" maxlength="280" required class="char-remain-txt"/>
+                <input name="post" id="post" required maxlength="280" class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
@@ -59,6 +59,7 @@ const bodyParser = express.urlencoded({ extended: true });
 let idCounter = 5;
 
 server.post("/", bodyParser, (request, response) => {
+    if (request.body.name) {
   let newUser = request.body;
   console.log(request.body);
   let name = newUser.username.toLowerCase();
@@ -69,6 +70,10 @@ server.post("/", bodyParser, (request, response) => {
 
   response.redirect("/");
   idCounter++;
+    }
+    else {
+        response.status(403).send(`<h1>Form error</h1>`)
+    }
 });
 
 server.post("/delete-post", bodyParser, (request, response) => {
