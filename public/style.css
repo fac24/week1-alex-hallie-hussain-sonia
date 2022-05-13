@@ -30,10 +30,8 @@ body {
 
 /* title */
 h1 {
-
     margin-top: 5%;
     text-align: center;
-    padding: 2 3em;
     letter-spacing: 5px;
 }
 
@@ -45,6 +43,10 @@ h2 {
     letter-spacing: 3px;
 }
 
+h3 {
+    font-size: 1.3rem;
+}
+
 /* description of the world */
 .blogge {
     line-height: 1.8;
@@ -52,7 +54,12 @@ h2 {
     text-align: center;
     font-weight: 500;
     font-style: italic;
+    padding: 0 0.5rem;
 }
+
+/* .counter {
+    margin-top: 1rem;
+} */
 
 /* form */
 form {
@@ -62,8 +69,8 @@ form {
     background-color: var(--white);
     margin: 0 auto;
     /* width: 85%; */
-    padding: 3em;
-    margin: auto;
+    /* padding: 3em; */
+    /* margin: auto; */
     max-width: 700px;
 }
 
@@ -102,21 +109,31 @@ button:hover {
 
 label {
     width: 380px;
+    margin-bottom: 1rem;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    flex-wrap: wrap-reverse;
 }
 
 /* hidden dots on lists */
 li {
     list-style-position: inside;
     list-style: none;
-    max-width: 500px;
-    margin: auto;
+    font-size: 1rem;
+    /* max-width: 500px;
+    margin: auto; */
 
 }
 
 /* posts */
 .user-post {
 
-    text-indent: 30px;
+    text-indent: 10px;
     white-space: nowrap;
     width: 60%;
     height: 150px;
@@ -161,7 +178,7 @@ li {
     cursor: pointer;
     border-radius: 6px;
     transition-duration: 0.4;
-    padding: 20px;
+    padding: 10px 20px;
 
 }
 
@@ -170,4 +187,11 @@ li {
     color: var(--white);
     background-color: var(--grey);
     border: 2px solid var(--grey);
+}
+
+@media (max-width: 880px) {
+    label {
+        max-width: 19rem;
+    }
+
 }

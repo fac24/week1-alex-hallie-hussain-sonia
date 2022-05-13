@@ -14,37 +14,43 @@ server.get("/", (request, response) => {
     item += `<li class="user-post">
         <div>
             <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" style="display: inline;">
+            <form class="delete_form" action="/delete-post" method="POST" style="display: inline;">
             <input name="username" hidden value="${user.username}"/>
-            <button name="id" value="${user.id}" aria-label="Delete ${user.post}">
+            <button class="delete_button" name="id" value="${user.id}" aria-label="Delete ${user.post}">
               &times;
             </button>
           </form>
             <p>${user.post}</p>
         </div>
             </li>`;
-  }
-  const html = /* html */ `
-    <html>
+    }
+    const html = /* html */ `
+  <!DOCTYPE html>
+  <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>bløgge</title>
         <link rel="stylesheet" type="text/css" href="/style.css">
         <script src="index.js" defer></script>
     </head>
     <body>
         <h1>bløgge</h1>
-        <form method="POST">
-            <label for="username">Your name
-                <input name="username" id="username" required/>
+        <p class = "blogge">bløgge(noun): the traditional Scandinavian art of sharing short thoughts from a distance.</p>
+         <section class="form-s">
+         <form method="POST">
+            <label for="username">
+                <input name="username" aria-label="Name" id="username" class="input_name" placeholder="Please enter your name" required/>
             </label>
-            <br>
-            <label for="post" id="post-label">Your post
-                <input name="post" id="post" required maxlength="280" class="char-remain-txt"/>
-                <div><span class="char-remain-count"></span>/280</div>
+            <br><br>
+            <label for="post" id="post-lable">
+                <input name="post" id="post" aria-label="Message" class="input_post" placeholder="Please type your post" maxlength="280" required class="char-remain-txt"/>
+                <div class="counter"><span class="char-remain-count"></span>/280</div>
             </label>
             <button type="submit">Submit</button>
         </form>
+        </section>
         <section>
             <h2>Recent Posts</h2>
             <ul>${item}</ul>
@@ -52,10 +58,10 @@ server.get("/", (request, response) => {
 
   </body>
 </html>`;
-  response.send(html);
+    response.send(html);
 });
 
-const bodyParser = express.urlencoded({ extended: true });
+const bodyParser = express.urlencoded({extended: true});
 let idCounter = 5;
 
 function sanitise(original_input) {
