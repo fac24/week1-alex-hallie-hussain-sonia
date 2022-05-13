@@ -14,9 +14,9 @@ server.get("/", (request, response) => {
     item += `<li class="user-post">
         <div>
             <h3>${user.username}</h3> 
-            <form action="/delete-post" method="POST" style="display: inline;">
+            <form class="delete_form" action="/delete-post" method="POST" style="display: inline;">
             <input name="username" hidden value="${user.username}"/>
-            <button name="id" value="${user.id}" aria-label="Delete ${user.post}">
+            <button class="delete_button" name="id" value="${user.id}" aria-label="Delete ${user.post}">
               &times;
             </button>
           </form>
