@@ -38,5 +38,6 @@ Made for the [Week I project](https://learn.foundersandcoders.com/course/syllabu
 ## Further Steps
 
 - We considered adding a date-time stamp to the posts, following an example from fac-23
+- Make the layout more responsive and mobile-friendly
 - More accessibility testing would have been good
 - Have more recent posts appear above older ones
