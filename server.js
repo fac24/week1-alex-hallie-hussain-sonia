@@ -9,22 +9,28 @@ server.listen(PORT, () => console.log(`Listening on http://localhost:${PORT}`));
 server.use(express.static("public"));
 
 server.get("/", (request, response) => {
-    item = "";
-    for (const user of Object.values(users)) {
-        item += `<li class="user-post">
+  item = "";
+  for (const user of Object.values(users)) {
+    item += `<li class="user-post">
         <div>
+<<<<<<< HEAD
             <h3>${user.username}</h3>
             <form action="/delete-post" method="POST" style="display: inline;">
             <button name="name" value="${user.username}" aria-label="Delete ${user.post}">
+=======
+            <h3>${user.username}</h3> 
+            <form action="/delete-post" method="POST" style="display: inline;">
+            <input name="username" hidden value="${user.username}"/>
+            <button name="id" value="${user.id}" aria-label="Delete ${user.post}">
+>>>>>>> 8c0a4339786a560ca9987668744f63b6f4877ad4
               &times;
             </button>
           </form>
             <p>${user.post}</p>
         </div>
             </li>`;
-
-    }
-    const html = /* html */`
+  }
+  const html = /* html */ `
     <html>
     <head>
         <meta charset="utf-8">
@@ -55,17 +61,27 @@ server.get("/", (request, response) => {
   response.send(html);
 });
 
-const bodyParser = express.urlencoded({extended: false});
+const bodyParser = express.urlencoded({ extended: true });
+let idCounter = 5;
 
 server.post("/", bodyParser, (request, response) => {
-    let newUser = request.body;
-    let name = newUser.username.toLowerCase();
-    users[name] = newUser;
-    response.redirect("/");
+  let newUser = request.body;
+  console.log(request.body);
+  let name = newUser.username.toLowerCase();
+  const userId = idCounter;
+  users[userId] = newUser;
+  users[userId].id = userId;
+  console.log(users);
+
+  response.redirect("/");
+  idCounter++;
 });
 
 server.post("/delete-post", bodyParser, (request, response) => {
-    const postToDelete = request.body.name.toLowerCase();
-    delete users[postToDelete];
-    response.redirect("/");
+  console.log(request.body.id);
+
+  const postToDelete = request.body.id;
+
+  delete users[postToDelete];
+  response.redirect("/");
 });
