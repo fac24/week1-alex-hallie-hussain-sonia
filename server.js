@@ -39,7 +39,7 @@ server.get("/", (request, response) => {
                 <input name="username" id="username" required/>
             </label>
             <br>
-            <label for="post" id="post-lable">Your post
+            <label for="post" id="post-label">Your post
                 <input name="post" id="post" required maxlength="280" class="char-remain-txt"/>
                 <div><span class="char-remain-count"></span>/280</div>
             </label>
@@ -70,17 +70,14 @@ function sanitise(original_input) {
 }
 
 server.post("/", bodyParser, (request, response) => {
-    if (request.body.name) {
-  let newUser = sanitise(request.body);
-  console.log(request.body);
-  let name = newUser.username.toLowerCase();
-  const userId = idCounter;
-  users[userId] = newUser;
-  users[userId].id = userId;
-  console.log(users);
-
-  response.redirect("/");
-  idCounter++;
+    console.log(request.body)
+    if (request.body.username && request.body.post) {
+        let newUser = sanitise(request.body);
+        const userId = idCounter;
+        users[userId] = newUser;
+        users[userId].id = userId;
+        response.redirect("/");
+        idCounter++;
     }
     else {
         response.status(403).send(`<h1>Form error</h1>`)
