@@ -58,9 +58,20 @@ server.get("/", (request, response) => {
 const bodyParser = express.urlencoded({ extended: true });
 let idCounter = 5;
 
+function sanitise(original_input) {
+    let sanitised = {};
+    for (let entry of Object.entries(original_input)) {
+        let key = entry[0];
+        let value = entry[1];
+        sanitised[key] = value.replaceAll("<", "&lt;");
+        sanitised[key] = value.replaceAll(">", "&gt;");
+    }
+    return sanitised;
+}
+
 server.post("/", bodyParser, (request, response) => {
     if (request.body.name) {
-  let newUser = request.body;
+  let newUser = sanitise(request.body);
   console.log(request.body);
   let name = newUser.username.toLowerCase();
   const userId = idCounter;
