@@ -21,16 +21,7 @@ it("user can read more than one post", () => {
         .and('contain', 'The worst post')
 })
 
-it("user can submit post and post will appear beneath", () => {
-    cy.visit("https://micro-blogge.herokuapp.com");
-    cy.get('form').find('input[name="username"]').type("Theodore Roosevelt");
-    cy.get('form').find('input[name="post"]').type('Call me Teddy');
-    cy.get('form').find('button').click();
-    cy.get('ul>li').contains("h3", "Theodore Roosevelt");
-    cy.get('ul>li').contains("p", "Call me Teddy");
-})
-
-it("user can delete a post", () => {
+it("user can post and delete that post", () => {
     cy.visit("https://micro-blogge.herokuapp.com");
     cy.get('form').find('input[name="username"]').type("Theodore Roosevelt");
     cy.get('form').find('input[name="post"]').type('Call me Teddy');
@@ -42,6 +33,3 @@ it("user can delete a post", () => {
     cy.contains('Theodore Roosevelt').should('not.exist');
 })
 
-//routes
-//post
-//delete

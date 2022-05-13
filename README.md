@@ -8,7 +8,6 @@ Made for the [Week I project](https://learn.foundersandcoders.com/course/syllabu
 
 - Clone repository
 - Make sure Node and npm are installed
-- Command line: npm run build
 - Command line: npm run dev
 
 ## User Stories
@@ -28,12 +27,16 @@ Made for the [Week I project](https://learn.foundersandcoders.com/course/syllabu
 
 ## Requirements
 
-- [ ] A page with a form to submit posts, and a page showing all posts
+- [x] A page with a form to submit posts, and a page showing all posts [functionality achieved on one page]
 - [x] No .html files (all HTML responses should be created dynamically within Node)
 - [x] No client-side JavaScript (all logic should happen on the server)
 - [ ] All static assets served correctly (CSS, favicon etc)
-- [ ] Tests for each server route
-- [ ] A responsive, mobile-first design
+- [x] Tests for each server route
+- [x] A responsive, mobile-first design
 - [ ] Ensure your app is accessible to as many different users as possible
 
 ## Further Steps
+
+- We considered adding a date-time stamp to the posts, following an example from fac-23
+- More accessibility testing would have been good
+- Have more recent posts appear above older ones
